@@ -3,7 +3,7 @@ local _ = require('utopia-route')
 local cors = require('cors')
 local logger = require('logger')
 local requestQuery = require('request-query')
-local jsonResponse = require('../json-response')
+local jsonResponse = require('json-response')
 
 local app = Utopia:new()
 
