@@ -12,7 +12,8 @@
       'voronianski/json-response',
       'voronianski/utopia',
       'voronianski/utopia-route',
-      'voronianski/request-query'
+      'voronianski/request-query',
+      'voronianski/body-parser'
     },
     files = {
       "**.lua",
