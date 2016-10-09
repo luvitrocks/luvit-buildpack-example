@@ -6,6 +6,7 @@ local requestQuery = require('request-query')
 local jsonResponse = require('json-response')
 
 local app = Utopia:new()
+local port = process.env.PORT or 8080
 
 local demoAPI = _.get('/demo', function (req, res)
   res:finish('demo!')
@@ -36,4 +37,4 @@ app:use(function (req, res)
   res:finish('done')
 end)
 
-app:listen(8080)
+app:listen(port)
