@@ -2,5 +2,10 @@
   "name": "Luvit Buildpack Example",
   "description": "Simple HTTP server hosted on Heroku with Luvit buildpack",
   "repository": "https://github.com/luvitrocks/luvit-buildpack-example",
-  "keywords": ["luvit", "buildpack", "example", "server"]
+  "keywords": ["luvit", "buildpack", "example", "server"],
+  "buildpacks": [
+    {
+      "url": "https://github.com/squeek502/heroku-buildpack-luvit"
+    }
+  ]
 }
