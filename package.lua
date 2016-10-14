@@ -9,7 +9,7 @@ return {
   dependencies = {
     'voronianski/logger',
     'voronianski/cors',
-    'voronianski/json-response',
+    'voronianski/response-methods',
     'voronianski/utopia',
     'voronianski/utopia-route',
     'voronianski/request-query',
