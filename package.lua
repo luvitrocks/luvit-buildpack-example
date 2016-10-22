@@ -13,7 +13,8 @@ return {
     'voronianski/utopia',
     'voronianski/utopia-route',
     'voronianski/request-query',
-    'voronianski/body-parser'
+    'voronianski/body-parser',
+    'voronianski/file-type'
   },
   files = {
     "**.lua",

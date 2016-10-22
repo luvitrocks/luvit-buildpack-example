@@ -7,6 +7,7 @@ local cors = require('cors')
 local logger = require('logger')
 local requestQuery = require('request-query')
 local bodyParser = require('body-parser')
+local fileType = require('file-type')
 
 local app = Utopia:new()
 local port = process.env.PORT or 8080
@@ -44,7 +45,24 @@ local redirectAPI = _.get('/redirect', function (req, res)
 end)
 
 local bufferAPI = _.post('/buffer', function (req, res)
+  local fileTypeData = fileType(req.body)
+
+  if fileTypeData then
+    local chunk = req.body:toString()
+
+    res:setHeader('Content-Type', fileTypeData.mime)
+    res:status(201):finish(chunk)
+  else
+    res:sendStatus(400)
+  end
+end)
+
+local rawBufferAPI = _.post('/buffer-raw', function (req, res)
   res:status(201):send(req.body)
+end)
+
+local sendStatusAPI = _.get('/status', function (req, res)
+  res:sendStatus(401)
 end)
 
 app:use(logger('short'))
@@ -62,6 +80,8 @@ app:use(nestedAPI)
 app:use(htmlAPI)
 app:use(redirectAPI)
 app:use(bufferAPI)
+app:use(rawBufferAPI)
+app:use(sendStatusAPI)
 app:use(function (req, res, nxt)
   res:finish('done')
 end)
