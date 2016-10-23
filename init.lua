@@ -1,4 +1,4 @@
-require('../http-utils/lib/response-methods')
+require('../http-utils/libs/response-methods')
 
 local Buffer = require('buffer').Buffer
 local Utopia = require('utopia')
